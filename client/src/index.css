@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Light mode theme colors */
+  --discord-blue: hsl(235, 86%, 67%);
+  --discord-light: hsl(235, 73%, 79%);
+  --light-bg: hsl(0, 0%, 98%);
+  --light-card: hsl(0, 0%, 100%);
+  --light-hover: hsl(0, 0%, 96%);
+  --light-text-primary: hsl(0, 0%, 9%);
+  --light-text-secondary: hsl(0, 0%, 45%);
+  --light-border: hsl(0, 0%, 88%);
+  
+  /* Dark mode theme colors */
+  --dark-bg: hsl(210, 9%, 13%);
+  --dark-card: hsl(210, 10%, 20%);
+  --dark-hover: hsl(210, 10%, 17%);
+  --dark-text-primary: hsl(0, 0%, 100%);
+  --dark-text-secondary: hsl(210, 9%, 73%);
+  --dark-border: hsl(210, 10%, 25%);
+  
+  /* Common colors */
+  --success: hsl(139, 47%, 43%);
+  --error: hsl(359, 82%, 59%);
+  --warning: hsl(38, 92%, 50%);
+}
+
+.dark {
+  --background: hsl(210, 9%, 13%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 10%, 17%);
+  --muted-foreground: hsl(210, 9%, 73%);
+  --popover: hsl(210, 10%, 20%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 10%, 20%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(210, 10%, 17%);
+  --input: hsl(210, 10%, 17%);
+  --primary: hsl(235, 86%, 67%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(210, 10%, 17%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(210, 10%, 17%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(359, 82%, 59%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(210, 9%, 73%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+  }
+
+  .dark body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .discord-sidebar {
+    background-color: var(--dark-card);
+    border-color: var(--dark-hover);
+  }
+
+  .light .discord-sidebar {
+    background-color: var(--light-card);
+    border-color: var(--light-border);
+  }
+
+  .discord-card {
+    background-color: var(--dark-card);
+    border-color: var(--dark-hover);
+  }
+
+  .light .discord-card {
+    background-color: var(--light-card);
+    border-color: var(--light-border);
+  }
+
+  .discord-button {
+    background-color: var(--discord-blue);
+    color: var(--dark-text-primary);
+  }
+
+  .discord-button:hover {
+    background-color: var(--discord-light);
+  }
+
+  .success-button {
+    background-color: var(--success);
+    color: var(--dark-text-primary);
+  }
+
+  .success-button:hover {
+    background-color: hsl(139, 47%, 38%);
+  }
+
+  .error-button {
+    background-color: var(--error);
+    color: var(--dark-text-primary);
+  }
+
+  .error-button:hover {
+    background-color: hsl(359, 82%, 54%);
+  }
+
+  .warning-button {
+    background-color: var(--warning);
+    color: var(--dark-bg);
+  }
+
+  .warning-button:hover {
+    background-color: hsl(38, 92%, 45%);
+  }
+
+  .status-online {
+    background-color: var(--success);
+  }
+
+  .status-offline {
+    background-color: var(--error);
+  }
+
+  .text-secondary {
+    color: var(--dark-text-secondary);
+  }
+
+  .light .text-secondary {
+    color: var(--light-text-secondary);
+  }
+
+  .status-connecting {
+    background-color: var(--warning);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .hover-card {
+    background-color: var(--dark-bg);
+  }
+
+  .hover-card:hover {
+    background-color: var(--dark-hover);
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
