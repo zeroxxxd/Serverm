@@ -16,6 +16,25 @@ app.listen(8000, () => {
   console.log('Server started');
 });
 
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8000;
+
+// Main route
+app.get('/', (req, res) => {
+  res.send('Bot has arrived');
+});
+
+// ✅ Health check route for Render or UptimeRobot
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+
 // Utility to generate a human-like username (5-16 chars, letters and sometimes numbers)
 function generateHumanUsername() {
   const names = [
